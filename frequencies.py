@@ -7,19 +7,13 @@ def itemToStr(itemsList):
         itemsList[i] = strItem
     return itemsList
 
-def itemCounter(item, itemList):
-    count = 0
-    for i in range (0, len(itemList)):
-        if item == itemList[i]:
-            count += 1
-    return count
-
 
 def frequencies(items):
     frequencies = {}
     items = itemToStr(items)
     for i in range(0, len(items)):
-        key = items[i]
-        val = itemCounter(items[i], items)
-        frequencies[key] = val
+        if items[i] not in frequencies.keys():
+            frequencies[items[i]] = 1
+        else:
+            frequencies[items[i]] += 1
     return frequencies
